@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!--Ajax import-->
+    <title>{{user.first_name}}'s Profile</title>
+    
+</head>
+<body>
+    <div id="all">
+
+        <h1 class="title">Hello, {{user.first_name}}! </h1>  <span> <a class="link" href="/plants">All Plants</a> | <a class="link" href="/user/profile">My Profile</a> | <a class="link" href="/logout">Logout</a> </span>
+        
+    <div class="profile">
+        <h2 class="sub-title">My Profile</h2>
+
+        <table>
+            <tr>
+                <th>Profile Pic</th>
+                <th>Name</th>
+                <th>Email</th>
+                
+            </tr>
+            
+                <tr>
+                    <tbody>
+
+                        <td><img class="img" src="{% static 'img/Cover1.jpg' %}" /></td>
+                        <td>{{user.first_name}} {{user.last_name}}</td>
+                        <td>{{user.email}}</td>
+                        
+                        
+                    </tbody> <!--Body of the table-->
+                
+                </tr>
+                
+
+        </table>
+
+        <form id="profile" action="/user/update/profile" method="post"> 
+            {% csrf_token %}
+
+            {% for message in messages %}
+            
+                <p class="errors">{{message}}</p>
+            
+            {% endfor %}
+
+        
+        
+            <label for="new-password">New Password:</label>
+            <input type="password" name = "password">
+
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" name = "confirm_pw">
+
+            <button type="submit">UPDATE</button>
+            
+        </form>
+
+    </div><!--End of Profile-->
+
+    <div class="profile">
+        
+
+        <h2 class="sub-title">My Favorite Plants</h2>
+
+
+        <table>
+            <tr>
+                <th>Plant Image</th>
+                <th>Plant Name</th>
+                <th>Owned By</th>
+                <th>Actions</th>
+            </tr>
+
+            {% for favorites in user.user_favorite.all %}
+                    <tr>
+                    
+                        <tbody id="myTable">
+                            
+                            <td><img class="img" src="{{favorites.img.url}}"></td>
+                            <td>{{favorites.plants}}</td>
+                            
+                            <td>{{favorites.owner.first_name}}</td> 
+                            <td> <a href="/plant/{{favorites.id}}/un-fav"><img class="fav" src="{% static 'img/heart-solid.svg' %}"></a> </td>
+                            
+            
+                        </tbody>
+                        
+                        
+                    </tr>
+            
+            {% endfor %}<!--For Loop  with all favorites-->
+        
+            
+        
+            
+            
+        
+        </table>
+        
+
+    </div><!--End of Profile-->
+        
+
+
+    
+            
+
+        
+
+    
+    </div><!--All-->
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {% load static %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+        <title>Register</title>
+    </head>
+<body class="bckgrd-image">
+
+    <div id="wrapper">
+        {% for message in messages %}
+            <p class="errors">{{message}}</p>
+        {% endfor %}
+
+        <div class="loginreg">
+            <h1>Register</h1>
+            
+            <form  action="/register" method="POST">
+                
+                {% csrf_token %}
+                <label for="first_name">First Name:</label>
+                <input type="text" name = "first_name">
+
+                <label for="last_name">Last Name:</label>
+                <input type="text" name = "last_name">
+
+                <label for="email">Email:</label>
+                <input type="text" name = "email">
+
+                <label for="password">Password:</label>
+                <input type="password" name = "password"> 
+
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" name = "confirm_pw">
+            
+                <button type="Submit">CREATE</button>
+
+                <a href="/">Back To Login</a>
+            </form>
+            
+
+        </div><!--End of Login Registration-->
+
+
+
+    </div><!--End of Wrapper-->
+    
+</body>
+</html>

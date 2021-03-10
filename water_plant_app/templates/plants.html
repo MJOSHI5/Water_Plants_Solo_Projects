@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!--Ajax import-->
+    <title>All Plants</title> 
+    
+</head>
+<body>
+    <div id="all">
+
+        <h1 class="title">Hello, {{user.first_name}}! </h1>  <span> <a class="link" href="/plants">All Plants</a> | <a class="link" href="/user/profile">My Profile</a> | <a class="link" href="/logout">Logout</a> </span>
+
+        <h2 class="sub-title">My Plants</h2>
+
+        
+        
+        <input id="plantSearch" type="text" placeholder="Search..">
+        <!--Ajax for search feature-->
+
+        <script>
+            $(document).ready(function(){
+                //$(document).ready(function()) - Making sure that the file is ready
+                $("#plantSearch").on("keyup", function(){
+                    //Selecting the id of search bar on the handler(function)
+                var value = $(this).val().toLowerCase();
+                    //Creating a varriable and setting it to the value of LowerCase()
+                $("#plantTable tr").filter(function() {
+                    //Selecting id of table body (plantTable) and tr(table row), which is being filtered
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > 0)
+                        //Using the jquerey .togglling the text and checking if the value of the search is greater than 0, this checks if the data that you are trying to search exsists.
+                });
+                });
+            });
+            </script>
+        
+
+        <table>
+            <tr>
+                <th>Images</th>
+                <th>Owner</th>
+                <th>Plant</th>
+                <th>Day</th>
+                <th>Time</th>
+                <th>Amount</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Room</th>
+                <th>Status</th>
+                <th>Likes</th>
+                <th>Favorite</th>
+                <th>Actions</th>
+            </tr>
+            {% for plants in all_plants %}
+                <tr>
+                    <tbody id="plantTable">
+                        
+
+                        <td>
+                            
+                            {% if plants.img %}
+                                
+                                <img class="img" src="{{plants.img.url}}">
+                        
+                                
+                            {% endif %}
+                    
+                        </td>
+                        <td>{{plants.owner.first_name}}</td>
+
+                    
+                        <td>{{plants.plants}}</td>
+                        <td>{{plants.day}}</td>
+                        <td>{{plants.time}}</td>
+                        <td>{{plants.quantity}}</td>
+                        <td>{{plants.start_date | date:"SHORT_DATE_FORMAT"}}</td>
+                        <td>{{plants.end_date | date:"SHORT_DATE_FORMAT"}}</td>
+                        <td>{{plants.room}}</td>
+                
+                        <td>{{plants.finished}}</td>
+                            
+                        
+                        <td>{{plants.user_likes.count}}</td><!--Number of Likes-->
+                        <td>
+                            
+                            {% if user not in plants.favorites.all %}
+                                <a href="/plant/{{plants.id}}/favorite"><img class="fav" src="{% static 'img/heart-regular.svg' %}"></a>
+                            {% endif %}
+                            
+                            {% if user in plants.favorites.all %}
+                                <a href="/plant/{{plants.id}}/un-favorite"><img class="fav" src="{% static 'img/heart-solid.svg' %}"></a>
+                            {% endif %}
+
+                        </td>
+            
+                        <td>    
+                            {% if plants.owner == user %}
+
+                                <a class="link" href="/plant/edit/{{plants.id}}">Edit</a> |
+                                <a class="link" href="/plant/delete/{{plants.id}}">Delete</a> |
+
+                            {% endif %}
+                            
+                            <a class="link" href="/plant/{{plants.id}}">View</a>
+
+                        </td> 
+                        
+            {% endfor %}
+                        
+                    </tbody> <!--Body of the table--> 
+                        
+
+                
+                
+            </tr> 
+            
+            <tr>
+
+                <td class="no-border-button">
+                    <form action="/plants/add" method="post">
+                        
+                        {% csrf_token %}
+                        
+            
+                        <button type="submit">Add Plant</button>
+                    
+                    
+                    </form>
+
+                    
+                    
+                </td>
+
+            </tr>
+            
+        
+            
+            
+        
+        </table>
+
+    
+
+        
+    </div><!--All-->
+</body>
+</html>

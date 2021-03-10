@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {% load static %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+        <title>Add Plant </title>
+    </head>
+<body>
+    <div id="add">
+
+        <h1 class="title">Hello, {{user.first_name}}! </h1>  <span> <a class="link" href="/plants">All Plants</a> | <a class="link" href="/user/profile">My Profile</a> | <a class="link" href="/logout">Logout</a> </span>
+
+        <h3>Add the details of your plant:</h3>
+        
+        
+
+        
+        
+        
+
+        <div id="schdule">
+    
+            
+                <form class="imgage" method="post" enctype="multipart/form-data">
+                
+                    {% csrf_token %}
+
+                    {% for message in messages %}
+                    
+                        <b> <p id="success">{{message}}</p> </b>
+                    
+                    {% endfor %}
+                
+
+
+                
+
+                    {{plant_form}}
+                
+                
+                
+    
+
+                    <button class="add" type="submit">ADD</button>
+                    <a href="/plants">CANCEL</a>
+                </form> 
+
+
+            
+            
+
+            <!--<a class="add" href="/plants">Back</a>-->
+            
+
+            
+            
+
+            
+            
+        </div><!--End Uploading Schdule-->
+
+        
+
+
+
+    
+
+
+</body>
+</html>

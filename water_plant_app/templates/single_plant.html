@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {% load static %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+        <title>{{plant.plants}}</title>
+    </head>
+<body>
+    <div id="add">
+
+        <h1 class="title">Hello, {{user.first_name}}! </h1>  <span> <a class="link" href="/plants">All Plants</a> | <a class="link" href="/user/profile">My Profile</a> | <a class="link" href="/logout">Logout</a> </span>
+        
+    
+            <div id="desc">
+                <h2>Here are the details for: <span>{{plant.plants}}</span></h2>  
+                
+                {% if plant.img %}
+                    <img class="info" src="{{plant.img.url}}">
+                
+                    
+                {% endif %}
+                <div class="info">
+
+                    
+                    <h3>Water On:</h3> 
+                    <p>{{plant.day}}</p>
+
+                    <h3>Water In: </h3> 
+                    <p>{{plant.time}}</p>
+
+                    <h3>Water Amount: </h3> 
+                    <p>{{plant.quantity}}</p>
+
+                    <h3>Room</h3>
+                    <p>{{plant.room}}</p>
+
+                    <h3>Watered:</h3>
+                    <p>{{plant.finished}}</p>
+
+                    <h3>Info: </h3> 
+                    <p>{{plant.description}}</p>
+                    
+                    
+                    
+                    {% if user not in plant.user_likes.all %}
+                        <a href="/plant/like/plant/{{plant.id}}"> <img class="like" src="{% static 'img/thumbs-up.svg' %}"> </a>
+                    {% endif %}
+
+                    {% if user in plant.user_likes.all %}
+                        <a href="/plant/un_like/plant/{{plant.id}}"> <img class="like" src="{% static 'img/thumbs-down.svg' %}"> </a>
+                    {% endif %}
+                    
+                    
+                    
+                    
+
+                <div class="block">
+                    <a  class="edit-back" href="/plants">Back</a> |
+                    {% if plant.owner == user %}
+                        <a class="edit-back" href="/plant/edit/{{plant.id}}">Edit</a> |
+                        <a class="edit-back" href="/plant/delete/{{plant.id}}">Delete</a> 
+                    {% endif %}
+
+                </div><!--End of Block-->
+                    
+                    
+                
+                
+                
+
+                </div><!--End of Info-->
+                
+                
+                
+                
+                
+            </div><!--End of Desc-->
+
+
+        
+        
+
+    
+</body>
+</html>

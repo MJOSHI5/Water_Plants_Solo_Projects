@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <title>Edit: {{plant.plants}}</title>
+</head>
+
+<body>
+    <div id="add">
+
+        <h1 class="title">Hello, {{user.first_name}}! </h1>  <span> <a class="link" href="/plants">All Plants</a> | <a class="link" href="/user/profile">My Profile</a> | <a class="link" href="/logout">Logout</a> </span>
+
+
+        <h3>Edit plant watering details below:</h3>
+
+            
+
+
+            
+        <form action="/plants/edit/form/{{plant.id}}" method="POST">
+            {% csrf_token %}
+
+            {% for message in messages %}
+                <p class="errors">{{message}}</p>
+            {% endfor %}
+            
+                
+            <div id="schdule">
+
+                <label for="name"><span>*</span>Plant Name: {{plant.plants}}</label>
+                <input class="plant" type="text" name = "plant" >
+                
+
+
+                <div class="half">
+                    <label class="block" for="start-date">Start Date: {{plant.start_date | date:"SHORT_DATE_FORMAT"}}</label>
+                    
+                    <input class="date" class="date" type="date" name="date" value="{{plant.start_date}}">
+
+                    <label class="block" for="end-date">End Date: {{plant.end_date | date:"SHORT_DATE_FORMAT"}}</label>
+                    <input class="date" type="date" name="date">
+
+                    <label class="block" for="time">Time: {{plant.time}}</label>
+
+                    <select class="block" id="select" name="time">
+                        <option value="select"></option>
+                        <option value="Morning">Morning</option>
+                        <option value="Afternoon">Afternoon</option>
+                        <option value="Evening">Evening</option>
+
+                    </select>
+
+                    <label class="block" for="amount">Water Amount: {{plant.quantity}}</label>
+
+                    <select class="block" id="select" name="water">
+                        <option value="Select"></option>
+                        <option value="1 cup">1 Cup</option>
+                        <option value="2 cup">2 Cups</option>
+                        <option value="soak">Soak</option>
+
+                    </select>
+
+
+
+                </div> <!--End of half-->
+                
+
+                <div class="half">
+                    <label class="block" for="day">Day: {{plant.day}}</label>
+
+                    <select class="block" id="select1" name="day">
+                        <option value="Select"></option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+
+                    </select>
+
+                    <label class="block" for="room">Room: {{plant.room}}</label>
+
+                    <select class="block" id="select1" name="room">
+                        <option value=""></option>
+                        <option value="Living Room">Living Room</option>
+                        <option value="Kitchen">Kitchen</option>
+                        <option value="Formal Room">Formal Room</option>
+
+                    </select>
+
+                    <label class="block" for="watered">Status: {{plant.finished}}</label>
+
+                        <select name="watered" id="select1">
+
+                            <option value=""></option>
+                            <option value="Not Started">Not Started</option>
+                            <option value="Started">Started</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Not Completed">Not Completed</option>
+
+                        </select>
+
+                
+
+                        
+                    
+                    
+
+                        
+
+                        
+
+                        
+                    
+                    </form>
+                    
+
+                </div> <!--Half-->
+
+            
+    
+                <label class="block" class="info" for="info">Additional Info: {{plant.description}}</label>
+
+                <textarea class="block" class="info" name="desc"></textarea>
+
+                <button class="add" type="submit">EDIT</button>
+
+                <a href="/plants">CANCEL</a>
+
+                
+            </div> <!--End of schdule-->
+
+
+
+        </form>
+
+
+
+
+
+    </div> <!--End of Add-->
+
+
+
+
+
+
+
+
+</body>
+
+</html>
