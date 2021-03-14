@@ -95,7 +95,7 @@ def plants(request):
 
     return render(request, 'plants.html', context)
 
-    
+
 #path('plants/add', views.add_plants),
 def add_plants(request):
     if 'user_id' not in request.session:
