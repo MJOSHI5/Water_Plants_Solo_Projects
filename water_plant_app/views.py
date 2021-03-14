@@ -55,10 +55,9 @@ def profile(request):
         messages.error(request, "Need to be logged in to change users password!")
         return redirect('/')
     user = User.objects.get(id=request.session['user_id'])
-    #favorite = Plant.objects.filter(favorites = 'user_favorite')
+    
     context = {
         'user':user,
-        #'fav':favorite,
     }   
     return render(request, 'profile.html', context) 
 
