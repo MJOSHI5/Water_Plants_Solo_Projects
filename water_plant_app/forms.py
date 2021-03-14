@@ -1,5 +1,4 @@
 from django import forms
-#from time import gmtime, strftime
 
 WATER_AMOUNT = [
     ('----', '----'),
@@ -18,8 +17,6 @@ STATUS = [
     ('Not Started', 'Started'),
     ('In Progress', 'Done'),
 ]
-
-
 
 class PlantForm(forms.Form):
     plants = forms.CharField()
