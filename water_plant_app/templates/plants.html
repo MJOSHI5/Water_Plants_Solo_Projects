@@ -95,12 +95,10 @@
                         <td>
                             
                             {% if user not in plants.favorites.all %}
-                                <!--<a href="/plant/{{plants.id}}/favorite"><img class="fav" src="{% static 'img/heart-regular.svg' %}"></a>-->
                                 <a href="/plant/{{plants.id}}/favorite"><i class="far fa-heart"></i></a>
                             {% endif %}
                             
                             {% if user in plants.favorites.all %}
-                                <!--<a href="/plant/{{plants.id}}/un-favorite"><img class="fav" src="{% static 'img/heart-solid.svg' %}"></a>-->
                                 <a href="/plant/{{plants.id}}/un-favorite"><i class="fas fa-heart"></i></a>
                             {% endif %}
 
