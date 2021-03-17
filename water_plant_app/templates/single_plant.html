@@ -49,12 +49,10 @@
                     
                     
                     {% if user not in plant.user_likes.all %}
-                        <!--<a href="/plant/like/plant/{{plant.id}}"> <img class="like" src="{% static 'img/thumbs-up.svg' %}"> </a>-->
                         <a href="/plant/like/plant/{{plant.id}}"><i class="far fa-thumbs-up"></i></a>
                     {% endif %}
 
                     {% if user in plant.user_likes.all %}
-                        <!--<a href="/plant/un_like/plant/{{plant.id}}"> <img class="like" src="{% static 'img/thumbs-down.svg' %}"> </a>-->
                         <a href="/plant/un_like/plant/{{plant.id}}"><i class="fas fa-thumbs-down"></i></a>
                     {% endif %}
                     
