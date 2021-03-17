@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     {% load static %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Style Sheet-->
     <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <!--Google Fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!--Ajax import-->
+    <!--Ajax for search-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <!--Font Awsome Kit-->
+    <script src="https://kit.fontawesome.com/8d145954f8.js" crossorigin="anonymous"></script>
     <title>All Plants</title> 
     
 </head>
@@ -89,11 +94,13 @@
                         <td>
                             
                             {% if user not in plants.favorites.all %}
-                                <a href="/plant/{{plants.id}}/favorite"><img class="fav" src="{% static 'img/heart-regular.svg' %}"></a>
+                                <!--<a href="/plant/{{plants.id}}/favorite"><img class="fav" src="{% static 'img/heart-regular.svg' %}"></a>-->
+                                <a href="/plant/{{plants.id}}/favorite"><i class="far fa-heart"></i></a>
                             {% endif %}
                             
                             {% if user in plants.favorites.all %}
-                                <a href="/plant/{{plants.id}}/un-favorite"><img class="fav" src="{% static 'img/heart-solid.svg' %}"></a>
+                                <!--<a href="/plant/{{plants.id}}/un-favorite"><img class="fav" src="{% static 'img/heart-solid.svg' %}"></a>-->
+                                <a href="/plant/{{plants.id}}/un-favorite"><i class="fas fa-heart"></i></a>
                             {% endif %}
 
                         </td>

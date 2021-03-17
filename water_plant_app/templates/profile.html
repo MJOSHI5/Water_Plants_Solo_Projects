@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!--Ajax import-->
+    <!--Font Awsome Kit-->
+    <script src="https://kit.fontawesome.com/8d145954f8.js" crossorigin="anonymous"></script>
     <title>{{user.first_name}}'s Profile</title>
     
 </head>
@@ -88,7 +90,8 @@
                             <td>{{favorites.plants}}</td>
                             
                             <td>{{favorites.owner.first_name}}</td> 
-                            <td> <a href="/plant/{{favorites.id}}/un-fav"><img class="fav" src="{% static 'img/heart-solid.svg' %}"></a> </td>
+                            <!--<td> <a href="/plant/{{favorites.id}}/un-fav"><img class="fav" src="{% static 'img/heart-solid.svg' %}"></a> </td>-->
+                            <td><a href="/plant/{{favorites.id}}/un-fav"><i class="fas fa-heart"></i></a></td>
                             
             
                         </tbody>

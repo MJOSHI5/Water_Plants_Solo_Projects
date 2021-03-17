@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+        <!--Font Awsome Kit-->
+        <script src="https://kit.fontawesome.com/8d145954f8.js" crossorigin="anonymous"></script>
         <title>{{plant.plants}}</title>
     </head>
 <body>
@@ -47,11 +49,13 @@
                     
                     
                     {% if user not in plant.user_likes.all %}
-                        <a href="/plant/like/plant/{{plant.id}}"> <img class="like" src="{% static 'img/thumbs-up.svg' %}"> </a>
+                        <!--<a href="/plant/like/plant/{{plant.id}}"> <img class="like" src="{% static 'img/thumbs-up.svg' %}"> </a>-->
+                        <a href="/plant/like/plant/{{plant.id}}"><i class="far fa-thumbs-up"></i></a>
                     {% endif %}
 
                     {% if user in plant.user_likes.all %}
-                        <a href="/plant/un_like/plant/{{plant.id}}"> <img class="like" src="{% static 'img/thumbs-down.svg' %}"> </a>
+                        <!--<a href="/plant/un_like/plant/{{plant.id}}"> <img class="like" src="{% static 'img/thumbs-down.svg' %}"> </a>-->
+                        <a href="/plant/un_like/plant/{{plant.id}}"><i class="fas fa-thumbs-down"></i></a>
                     {% endif %}
                     
                     

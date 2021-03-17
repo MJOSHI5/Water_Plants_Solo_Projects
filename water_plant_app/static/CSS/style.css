@@ -22,6 +22,12 @@ body{
     margin-top:40px;
 }
 
+td i{
+    color:red;
+    font-size: 36px;
+    text-align: center;
+}
+
 a{
     color:#382C25;
     /*color:green;*/
@@ -121,10 +127,10 @@ a{
 }
 
 
-#desc img{
-    /*width:300px;*/
-    display:inline-block;
-    vertical-align: top;
+#desc i{
+    
+    text-align: center;
+    font-size: 36px;
 }
 
 .edit-back{
