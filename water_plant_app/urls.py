@@ -21,6 +21,7 @@ urlpatterns = [
     path('plant/<int:favorites_id>/un-fav', views.un_fav),
     #<a href="/user/profile">My Profile</a>
     path('user/profile', views.profile),
+    #<a class="link" href="/user/profile">My Profile</a>
     path('user/update/profile', views.update_profile),
     #<a class="block" href="/plant/un_like/plant/{{plant.id}}">Un_Like</a>
     path('plant/un_like/plant/<int:plant_id>', views.un_like),
