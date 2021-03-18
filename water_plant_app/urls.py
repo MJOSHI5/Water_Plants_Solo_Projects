@@ -15,7 +15,7 @@ urlpatterns = [
     path('plant/like/plant/<int:plant_id>', views.like),
     #<a href="/plant/{{plants.id}}/favorite">Favorite</a>
     path('plant/<int:plants_id>/favorite', views.favorite),
-    # <a href="/plant/{{plants.id}}/un-favorite"><img class="fav" src="{% static 'img/heart-solid.svg' %}"></a>
+    #<a href="/plant/{{plants.id}}/un-favorite"><img class="fav" src="{% static 'img/heart-solid.svg' %}"></a>
     path('plant/<int:plants_id>/un-favorite', views.un_favorite),
     #<a href="/plant/{{favorites.id}}/un-fav"><img class="fav" src="{% static 'img/heart-solid.svg' %}"></a>
     path('plant/<int:favorites_id>/un-fav', views.un_fav),

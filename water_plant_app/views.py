@@ -45,7 +45,7 @@ def login(request):
 
             if bcrypt.checkpw(request.POST['password'].encode(), user.password.encode()):
                 request.session['user_id'] = user.id
-                return redirect('/plants') #path('wall', views.wall),
+                return redirect('/plants') 
     messages.error(request, "Email or password is incorrect!")
     return redirect('/')
 
