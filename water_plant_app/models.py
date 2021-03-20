@@ -16,6 +16,9 @@ class UserManager(models.Manager):
             errors['password_conf'] = "Password and confirm password need to match."
         if not EMAIL_REGEX.match(postData['email']):
             errors['email'] = ("Invalid Email address.")
+        check_email = self.filter(email=postData['email'])
+        if check_email:
+            errors['email'] = "Email already exsists, please use a diffrent one."
         return errors
     
     def password_validator(self, postData):
