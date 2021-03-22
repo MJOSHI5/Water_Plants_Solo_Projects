@@ -21,6 +21,9 @@
             
             {% for message in messages %}
                 <p class="errors">{{message}}</p>
+                {% if message.success %}
+                    <p id="success">{{message}}</p> 
+                {% endif %}
             {% endfor %}
             
 
