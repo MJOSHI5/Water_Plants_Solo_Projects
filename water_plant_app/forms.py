@@ -18,6 +18,8 @@ STATUS = [
     ('In Progress', 'Done'),
 ]
 
+
+
 class PlantForm(forms.Form):
     plants = forms.CharField()
     day = forms.CharField() 
@@ -25,8 +27,8 @@ class PlantForm(forms.Form):
     quantity = forms.CharField(label = 'Water Amount', widget = forms.Select(choices = WATER_AMOUNT)) 
     room = forms.CharField(label ='Room', widget = forms.Select(choices = ROOM))
     status = forms.CharField(label ='Status', widget = forms.Select(choices = STATUS))
-    start_date = forms.DateTimeField(widget = forms.SelectDateWidget) 
-    end_date = forms.DateTimeField(widget = forms.SelectDateWidget)
+    start_date = forms.DateTimeField(label= 'Start Date', widget = forms.SelectDateWidget) 
+    end_date = forms.DateTimeField(label = 'End Date', widget = forms.SelectDateWidget)
     image = forms.ImageField() 
     description = forms.CharField(widget=forms.Textarea)
     

@@ -15,6 +15,12 @@ body{
     width:100px;
 }
 
+li{
+    list-style: none;
+}
+
+
+
 #all, #add{
     width:970px;
     height:auto;
@@ -372,7 +378,7 @@ a{
 
 .imgage label{
     margin-right:5px;
-    padding:2px;
+    
 }
 
 
@@ -392,6 +398,7 @@ a{
     padding:3px;
     border-radius: 8px;
     border:solid 1px #7C5E67;
+    width:100%;
 }
 
 
@@ -498,6 +505,10 @@ select{
     margin-bottom:10px;
     margin-top:10px;
     padding:2px;
+    border-radius: 8px;
+    display:inline-block;
+    margin-left:8px;
+    margin-right:8px;
     border:solid 1px #7C5E67;
 
 }
