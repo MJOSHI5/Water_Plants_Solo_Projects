@@ -154,7 +154,7 @@ def edit(request, plants_id):
         
     }
     return render(request, 'edit.html', context)
-    #return render(request, 'plant-form.html', context)
+    
 
 #path('plants/edit/form/<int:plant_id>', views.edit_form),
 def edit_form(request, plant_id):
