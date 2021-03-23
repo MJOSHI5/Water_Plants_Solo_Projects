@@ -25,7 +25,7 @@ urlpatterns = [
     path('user/update/profile', views.update_profile),
     #<a class="block" href="/plant/un_like/plant/{{plant.id}}">Un_Like</a>
     path('plant/un_like/plant/<int:plant_id>', views.un_like),
-    #<form action="/plants/add" method="post">
+    #<form action="/plants/add" method="post"> 
     path('plants/add', views.add_plants),
     #<a href="/plant/edit/{{plants.id}}">Edit</a>
     path('plant/edit/<int:plants_id>', views.edit),
