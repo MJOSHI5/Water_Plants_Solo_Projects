@@ -138,7 +138,7 @@ def add_plants(request):
         'plant_form':plant,
         'user':user,
     }
-    return render(request, 'add-plant.html', context)
+    return render(request, 'plant-form.html', context)
 
 #path('plant/edit/<int:plants_id>', views.edit),
 def edit(request, plants_id):
@@ -147,11 +147,14 @@ def edit(request, plants_id):
         return redirect('/')
     user = User.objects.get(id=request.session['user_id'])
     plant = Plant.objects.get(id = plants_id)
+    
     context = {
         'user':user,
         'plant':plant,
+        
     }
     return render(request, 'edit.html', context)
+    #return render(request, 'plant-form.html', context)
 
 #path('plants/edit/form/<int:plant_id>', views.edit_form),
 def edit_form(request, plant_id):
