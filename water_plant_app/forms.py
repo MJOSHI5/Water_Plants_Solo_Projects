@@ -18,8 +18,16 @@ STATUS = [
     ('In Progress', 'Done'),
 ]
 
+#User Form - Have not incorporated in views yet, wanted to have it ready
+class UserForm(forms.Form):
+    first_name = forms.CharField()
+    last_name = forms.CharField()
+    email = forms.CharField()
+    password = forms.CharField()
+    confirm_password = forms.CharField()
 
 
+#Plant Form
 class PlantForm(forms.Form):
     plants = forms.CharField()
     day = forms.CharField() 
