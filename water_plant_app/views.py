@@ -147,12 +147,13 @@ def edit(request, plants_id):
         return redirect('/')
     user = User.objects.get(id=request.session['user_id'])
     plant = Plant.objects.get(id = plants_id)
-    
+    #form = PlantForm(instance = plant) 
     context = {
         'user':user,
         'plant':plant,
-        
+        #'plant_form':form,
     }
+    #return render(request, 'plant-form.html', context)
     return render(request, 'edit.html', context)
     
 
