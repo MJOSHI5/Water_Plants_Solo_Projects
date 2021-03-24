@@ -130,7 +130,7 @@ def add_plants(request):
                 
             )
             messages.success(request, 'Plant Added Successfully! You can continue uploading more plants or go all plants table')
-        return redirect('/plants/add')
+        return redirect('/plants/form')
     else:
         plant = PlantForm() 
         user = User.objects.get(id=request.session['user_id'])
