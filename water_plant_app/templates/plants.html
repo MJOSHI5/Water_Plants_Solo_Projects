@@ -61,6 +61,7 @@
                 <th>Status</th>
                 <th>Likes</th>
                 <th>Favorite</th>
+                <th>Reminders</th>
                 <th>Actions</th>
             </tr>
             {% for plants in all_plants %}
@@ -106,7 +107,7 @@
 
                         </td>
                         
-            
+                        <td>Tomorrow</td>
                         <td>    
                             {% if plants.owner == user %}
 
