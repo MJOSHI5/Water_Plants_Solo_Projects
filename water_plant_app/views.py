@@ -43,6 +43,7 @@ def create_account(request):
 
 
 #path('register', views.register),
+#If lines 10-42 works, lines below can be removed.
 def register(request):
     
     if request.method == "POST":
