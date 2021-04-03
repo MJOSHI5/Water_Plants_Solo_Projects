@@ -18,13 +18,14 @@ STATUS = [
     ('In Progress', 'Done'),
 ]
 
-#User Form - Have not incorporated in views yet, wanted to have it ready
+#User Form - Have not incorporated in views/html yet
 class UserForm(forms.Form):
-    first_name = forms.CharField()
-    last_name = forms.CharField()
-    email = forms.CharField()
-    password = forms.CharField()
-    confirm_password = forms.CharField()
+    first_name = forms.CharField(label='First Name')
+    last_name = forms.CharField(label='Last Name')
+    #image = forms.ImageField()
+    email = forms.CharField(label='Email')
+    password = forms.CharField(label='Password')
+    confirm_password = forms.CharField(label='Confirm Password')
 
 
 #Plant Form

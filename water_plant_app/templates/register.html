@@ -20,13 +20,22 @@
             <p class="errors">{{message}}</p>
         {% endfor %}
 
+
+
         <div class="loginreg">
             <h1>Register</h1>
             
-            <form  action="/register" method="POST">
+            <!--<form  action="/register" method="POST">-->
+            <form method="post" enctype="multipart/form-data">
                 
                 {% csrf_token %}
-                <label for="first_name">First Name:</label>
+
+                {{user_form}}
+                <button type="Submit">CREATE</button>
+
+                <a href="/">Back To Login</a>
+                <!--
+                    <label for="first_name">First Name:</label>
                 <input type="text" name = "first_name">
 
                 <label for="last_name">Last Name:</label>
@@ -46,7 +55,12 @@
                 <button type="Submit">CREATE</button>
 
                 <a href="/">Back To Login</a>
+
             </form>
+
+
+                -->
+                
             
 
         </div><!--End of Login Registration-->

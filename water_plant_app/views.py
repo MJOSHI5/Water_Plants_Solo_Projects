@@ -8,10 +8,43 @@ from datetime import datetime
 
 #path('create', views.create_account),
 def create_account(request):
-    return render(request, 'register.html')
+    context = {}
+    if request.method == "POST":
+        user_form = UserForm(data=request.POST) #files=request.FILES after adding image field in Models.PY file
+        if user_form.is_valid(): 
+            #img = user_form.cleaned_data.get('image')
+            first_name = user_form.cleaned_data.get("first_name")
+            last_name = user_form.cleaned_data.get("last_name")
+            email = user_form.cleaned_data.get("email")
+            password = user_form.cleaned_data.get("password")
+            confirm_password = user_form.cleaned_data.get("confirm_password")
+    
+            register = User.objects.create(
+                #img=img, Add after adding instance in Models.PY in the User class
+                first_name = first_name,
+                last_name = last_name,
+                email = email,
+                password = password,
+                confirm_password = confirm_password,            
+            )
+
+            print(register)
+            #messages.success(request, 'Plant Added Successfully! You can continue uploading more plants or go all plants table')
+        return redirect('/plants')
+    else:
+        user_form = UserForm() 
+        #user = User.objects.get(id=request.session['user_id'])
+    context = {
+        'user_form':user_form,
+        #'user':user,
+    }
+    
+    return render(request, 'register.html', context)
+
 
 #path('register', views.register),
 def register(request):
+    
     if request.method == "POST":
         errors = User.objects.user_validator(request.POST)
         if len(errors) > 0:
