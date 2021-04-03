@@ -19,7 +19,9 @@ li{
     list-style: none;
 }
 
-
+#reminder input{
+    cursor: pointer;
+}
 
 #all, #add{
     width:970px;
