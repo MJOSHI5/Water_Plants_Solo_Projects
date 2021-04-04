@@ -22,7 +22,7 @@ STATUS = [
 class UserForm(forms.Form):
     first_name = forms.CharField(label='First Name')
     last_name = forms.CharField(label='Last Name')
-    #image = forms.ImageField()
+    image = forms.ImageField(label='Profile Pic')
     email = forms.CharField(label='Email')
     password = forms.CharField(label='Password')
     confirm_password = forms.CharField(label='Confirm Password')

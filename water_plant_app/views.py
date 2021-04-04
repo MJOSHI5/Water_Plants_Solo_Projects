@@ -10,9 +10,9 @@ from datetime import datetime
 def create_account(request):
     context = {}
     if request.method == "POST":
-        user_form = UserForm(data=request.POST) #files=request.FILES after adding image field in Models.PY file
+        user_form = UserForm(data=request.POST, files=request.FILES) 
         if user_form.is_valid(): 
-            #img = user_form.cleaned_data.get('image')
+            img = user_form.cleaned_data.get('image')
             first_name = user_form.cleaned_data.get("first_name")
             last_name = user_form.cleaned_data.get("last_name")
             email = user_form.cleaned_data.get("email")
@@ -20,7 +20,7 @@ def create_account(request):
             confirm_password = user_form.cleaned_data.get("confirm_password")
     
             register = User.objects.create(
-                #img=img, Add after adding instance in Models.PY in the User class
+                img=img, 
                 first_name = first_name,
                 last_name = last_name,
                 email = email,
