@@ -35,6 +35,7 @@ class UserManager(models.Manager):
 class User(models.Model):
     first_name = models.CharField(max_length = 255)
     last_name = models.CharField(max_length = 255)
+    img = models.ImageField(upload_to = "img/", null = True, blank = True)
     email = models.CharField(max_length = 255)
     password = models.CharField(max_length = 255)
     created_at = models.DateTimeField(auto_now_add = True)
