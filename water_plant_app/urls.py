@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
     path('', views.index),
     #<form action="/register" method="POST">
-    path('register', views.register),
+    path('register', views.register), 
     #<form action="/login" method="POST">
     path('login', views.login),
     #<a class="no-account" href="/create">Create an account</a>

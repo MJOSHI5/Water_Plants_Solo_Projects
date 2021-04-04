@@ -8,42 +8,11 @@ from datetime import datetime
 
 #path('create', views.create_account),
 def create_account(request):
-    context = {}
-    if request.method == "POST":
-        user_form = UserForm(data=request.POST, files=request.FILES) 
-        if user_form.is_valid(): 
-            img = user_form.cleaned_data.get('image')
-            first_name = user_form.cleaned_data.get("first_name")
-            last_name = user_form.cleaned_data.get("last_name")
-            email = user_form.cleaned_data.get("email")
-            password = user_form.cleaned_data.get("password")
-            #confirm_password = user_form.cleaned_data.get("confirm_password")
     
-            register = User.objects.create(
-                img=img, 
-                first_name = first_name,
-                last_name = last_name,
-                email = email,
-                password = password,
-                #confirm_password = confirm_password,            
-            )
-
-            print(register)
-            #messages.success(request, 'Plant Added Successfully! You can continue uploading more plants or go all plants table')
-        return redirect('/plants')
-    else:
-        user_form = UserForm() 
-        #user = User.objects.get(id=request.session['user_id'])
-    context = {
-        'user_form':user_form,
-        #'user':user,
-    }
-    
-    return render(request, 'register.html', context)
+    return render(request, 'register.html')
 
 
 #path('register', views.register),
-#If lines 10-42 works, lines below can be removed.
 def register(request):
     
     if request.method == "POST":
@@ -73,13 +42,14 @@ def index(request):
 #path('login', views.login),
 def login(request):
     if request.method=="POST":
+        
         user = User.objects.filter(email = request.POST['email'])
         if len(user) > 0:
             user = user[0]
 
             if bcrypt.checkpw(request.POST['password'].encode(), user.password.encode()):
                 request.session['user_id'] = user.id
-                return redirect('/plants') 
+                return redirect('/plants')
     messages.error(request, "Email or password is incorrect!")
     return redirect('/')
 
