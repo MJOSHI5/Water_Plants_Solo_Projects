@@ -25,7 +25,7 @@ class UserForm(forms.Form):
     image = forms.ImageField(label='Profile Pic')
     email = forms.CharField(label='Email')
     password = forms.CharField(label='Password')
-    confirm_password = forms.CharField(label='Confirm Password')
+    #confirm_password = forms.CharField(label='Confirm Password')
 
 
 #Plant Form

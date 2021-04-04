@@ -17,7 +17,7 @@ def create_account(request):
             last_name = user_form.cleaned_data.get("last_name")
             email = user_form.cleaned_data.get("email")
             password = user_form.cleaned_data.get("password")
-            confirm_password = user_form.cleaned_data.get("confirm_password")
+            #confirm_password = user_form.cleaned_data.get("confirm_password")
     
             register = User.objects.create(
                 img=img, 
@@ -25,7 +25,7 @@ def create_account(request):
                 last_name = last_name,
                 email = email,
                 password = password,
-                confirm_password = confirm_password,            
+                #confirm_password = confirm_password,            
             )
 
             print(register)
