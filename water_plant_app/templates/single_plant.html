@@ -47,7 +47,7 @@
                     <h3>Watered:</h3>
                     <p>{{plant.finished}}</p>
 
-                    <h3>Add Reminder:</h3>
+                    <h3>Add A Reminder:</h3>
 
                     
 
@@ -63,8 +63,9 @@
 
                     
 
-                    
-                        <p>Reminded</p>
+                        <!--This will show after user selects yes: a calendar feature-->
+                        <!--Reminder set confirmed goes here-->
+                        
                         
                         
 
@@ -81,7 +82,7 @@
                     {% endif %}
 
                     {% if user in plant.user_likes.all %}
-                        <a href="/plant/un_like/plant/{{plant.id}}"><i class="fas fa-thumbs-down"></i></a>
+                        <a href="/plant/un_like/plant/{{plant.id}}"><i class="fas fa-thumbs-up"></i></a>
                     {% endif %}
                     
                     
